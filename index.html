@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <title>gmaps</title>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script src="jquery.gmap.min.js"></script>
+    <script>
+        $(function(){
+            $('#map').gmap({
+                width: '600px',                 // required, width of map
+                height: '300px',                // required, height of map
+                //zoom: 2,                      // zoom level
+                //latitude: 55.865627,          // centre of map (latitude) - not used if you fit markers within bounds
+                //longitude: -4.257223,         // centre of map (longitude) - not used if you fit markers within bounds
+                zoomAndCentre: true,            // fits all markers within boundaries of the map - unused
+                mapType: google.maps.MapTypeId.ROADMAP, // or SATELLITE, HYBRID, or TERRAIN
+                markers: [
+                    {
+                        latitude:55.865627,     // latitude of point
+                        longitude:-4.257223,    // longitude of point
+                        text:'<a href="http://www.google.com">Google</a>' // content of marker ballon - will take HTML
+                    },
+                    {
+                        latitude:0,
+                        longitude:0,
+                        text:'foo'
+                    },
+                    {
+                        latitude: 32,
+                        longitude: -1,
+                        text:'bar'
+                    },
+                ]
+            });
+        });
+    </script>
+</head>
+<body>
+    <div id="map"></div>
+</body>
+</html>
